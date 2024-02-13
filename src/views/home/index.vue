@@ -1,7 +1,25 @@
 <template>
-  <div>首頁</div>
+  <div class="container">
+    <HomeCategory />
+    <HomeBanner />
+  </div>
+  <HomeNew />
+  <HomeHot />
+  <HomeProduct />
 </template>
 
-<script setup></script>
+<script setup>
+import HomeCategory from "./components/HomeCategory.vue";
+import HomeBanner from "./components/HomeBanner.vue";
+import HomeNew from "./components/HomeNew.vue";
+import HomeHot from "./components/HomeHot.vue";
+import HomeProduct from "./components/HomeProduct.vue";
+</script>
 
-<style></style>
+<style scoped lang="scss">
+.container {
+  width: 90%;
+  margin-inline: auto;
+  position: relative;
+}
+</style>

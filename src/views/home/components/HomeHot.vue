@@ -1,7 +1,7 @@
-<script setup></script>
-
 <template>
-  <RouterView />
+  <div>Hot</div>
 </template>
+
+<script setup></script>
 
 <style lang="scss" scoped></style>

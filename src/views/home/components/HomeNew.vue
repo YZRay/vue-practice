@@ -1,7 +1,7 @@
-<script setup></script>
-
 <template>
-  <RouterView />
+  <div>最新消息</div>
 </template>
+
+<script setup></script>
 
 <style lang="scss" scoped></style>

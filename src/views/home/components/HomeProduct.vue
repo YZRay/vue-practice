@@ -7,7 +7,7 @@ import ProductItems from "./ProductItems.vue";
 const electronicsProduct = ref([]);
 const getElectronicsProduct = async () => {
   const res = await getElectronicsProductAPI();
-  electronicsProduct.value = res;
+  electronicsProduct.value = res.data;
 };
 
 onMounted(() => {
@@ -20,7 +20,7 @@ onMounted(() => {
     <el-row :gutter="16">
       <el-col
         class="card-col"
-        v-for="item in electronicsProduct.slice(0, 8)"
+        v-for="item in electronicsProduct"
         :key="item.id"
         :span="6"
       >

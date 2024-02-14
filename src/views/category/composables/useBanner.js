@@ -9,7 +9,7 @@ export function useBanner() {
     const res = await getBannerAPI({
       categoryId: id,
     });
-    bannerList.value = res;
+    bannerList.value = res.data;
   };
 
   onMounted(() => {

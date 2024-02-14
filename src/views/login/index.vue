@@ -2,9 +2,10 @@
 import "element-plus/theme-chalk/el-message.css";
 import { ElMessage } from "element-plus";
 import { ref } from "vue";
-import { loginAPI } from "@/api/user";
 import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user";
 
+const userStore = useUserStore();
 const form = ref({
   email: "",
   password: "",
@@ -36,8 +37,8 @@ const doLogin = () => {
   const { email, password } = form.value;
 
   formRef.value.validate(async (valid) => {
+    await userStore.getUserInfo({ email, password });
     if (valid) {
-      const res = await loginAPI({ email, password });
       ElMessage({ type: "success", message: "登入成功" });
       //redirect to home
       router.replace({ path: "/" });

@@ -8,7 +8,7 @@ const productStore = useProductStore();
   <div class="home-banner">
     <el-carousel height="400px" interval="6000">
       <el-carousel-item
-        v-for="item in productStore.productList.slice(2, 9)"
+        v-for="item in productStore.productList.slice(0, 7)"
         :key="item.id"
       >
         <img :src="item.images[1]" :alt="item.title" />

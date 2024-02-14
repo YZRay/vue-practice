@@ -6,7 +6,7 @@ export const useProductStore = defineStore("product", () => {
   const productList = ref([]);
   const getProduct = async () => {
     const res = await getBannerAPI();
-    productList.value = res;
+    productList.value = res.data;
   };
 
   return {

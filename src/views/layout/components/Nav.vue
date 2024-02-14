@@ -2,15 +2,20 @@
   <nav class="nav">
     <div class="container">
       <ul>
-        <template v-if="false">
+        <template v-if="userStore.userInfo.data?.access_token">
           <li>
-            <a href="javascript:;">Ray</a>
+            <a class="avatar" href="javascript:;">
+              <el-avatar :size="32" :src="userStore.user?.avatar" /><span>{{
+                userStore.user?.name
+              }}</span>
+            </a>
           </li>
           <li>
             <el-popconfirm
               title="確定要登出嗎？"
               confirm-button-text="確定"
               cancel-button-text="取消"
+              @confirm="confirm"
             >
               <template #reference>
                 <a href="javascript:;">登出</a>
@@ -40,7 +45,18 @@
   </nav>
 </template>
 
-<script setup></script>
+<script setup>
+import { useUserStore } from "@/stores/user";
+import { useRouter } from "vue-router";
+
+const userStore = useUserStore();
+const router = useRouter();
+//登出
+const confirm = () => {
+  userStore.clearUserInfo();
+  router.push("/login");
+};
+</script>
 
 <style lang="scss" scoped>
 .nav {
@@ -50,6 +66,11 @@
     height: 53px;
     justify-content: flex-end;
     align-items: center;
+    .avatar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     li {
       a {
         padding: 0 1rem;

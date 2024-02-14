@@ -7,7 +7,10 @@ const categoryStore = useCategoryStore();
 <template>
   <div class="home-category">
     <ul class="menu">
-      <li v-for="item in categoryStore.categoryList" :key="item.id">
+      <li
+        v-for="item in categoryStore.categoryList?.slice(0, 4)"
+        :key="item.id"
+      >
         <RouterLink to="/">{{ item.name }}</RouterLink>
         <div class="layer">
           <h4>商品分類<small>隨機推薦</small></h4>

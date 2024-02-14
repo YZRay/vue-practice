@@ -9,7 +9,7 @@ const productStore = useProductStore();
   <HomePanel title="POPULAR" sub-title="Popular Product">
     <el-row :gutter="16">
       <el-col
-        v-for="item in productStore.productList.slice(5, 9)"
+        v-for="item in productStore.productList.slice(0, 4)"
         :key="item.id"
         :span="6"
       >

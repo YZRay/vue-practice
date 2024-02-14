@@ -1,4 +1,6 @@
 import axios from "axios";
+import "element-plus/theme-chalk/el-message.css";
+import { ElMessage } from "element-plus";
 
 const httpInstance = axios.create({
   baseURL: "https://api.escuelajs.co/api",
@@ -13,8 +15,9 @@ httpInstance.interceptors.request.use(
 );
 
 httpInstance.interceptors.response.use(
-  (res) => res.data,
+  (res) => res,
   (e) => {
+    ElMessage({ type: "error", message: e.response.data.message });
     return Promise.reject(e);
   }
 );

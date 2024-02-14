@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="container">
       <ul>
-        <template v-if="true">
+        <template v-if="false">
           <li>
             <a href="javascript:;">Ray</a>
           </li>
@@ -26,7 +26,7 @@
         </template>
         <template v-else>
           <li>
-            <a href="javascript:;">登入</a>
+            <a href="javascript:;" @click="$router.push('/login')">登入</a>
           </li>
           <li>
             <a href="javascript:;">客服中心</a>

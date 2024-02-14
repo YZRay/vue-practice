@@ -1,24 +1,17 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import { getBannerAPI } from "@/api/home";
+import { useProductStore } from "@/stores/product";
 
-const bannerList = ref([]);
-
-const getBanner = async () => {
-  const res = await getBannerAPI();
-  bannerList.value = res.slice(0, 5);
-};
-
-onMounted(() => {
-  getBanner();
-});
+const productStore = useProductStore();
 </script>
 
 <template>
   <div class="home-banner">
-    <el-carousel height="400px">
-      <el-carousel-item v-for="item in bannerList" :key="item.id">
-        <img :src="item.category.image" :alt="item.category.name" />
+    <el-carousel height="400px" interval="6000">
+      <el-carousel-item
+        v-for="item in productStore.productList.slice(2, 9)"
+        :key="item.id"
+      >
+        <img :src="item.images[1]" :alt="item.title" />
       </el-carousel-item>
     </el-carousel>
   </div>

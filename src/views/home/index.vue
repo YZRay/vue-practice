@@ -14,6 +14,14 @@ import HomeBanner from "./components/HomeBanner.vue";
 import HomeNew from "./components/HomeNew.vue";
 import HomeHot from "./components/HomeHot.vue";
 import HomeProduct from "./components/HomeProduct.vue";
+import { useProductStore } from "@/stores/product";
+import { onMounted } from "vue";
+
+const productStore = useProductStore();
+
+onMounted(() => {
+  productStore.getProduct();
+});
 </script>
 
 <style scoped lang="scss">

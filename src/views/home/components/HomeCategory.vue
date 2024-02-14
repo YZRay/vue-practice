@@ -60,7 +60,7 @@ const categoryStore = useCategoryStore();
         }
       }
       .layer {
-        width: 990px;
+        width: 1000px;
         height: 400px;
         background: rgba(255, 255, 255, 0.8);
         position: absolute;

@@ -18,7 +18,7 @@
         <h3>全部分類</h3>
         <ul>
           <li v-for="i in bannerList" :key="i.id">
-            <RouterLink :to="`/category/sub/${i.id}`">
+            <RouterLink :to="`#`">
               <img :src="i.images[1]" />
               <p>{{ i.title }}</p>
             </RouterLink>

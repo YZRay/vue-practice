@@ -14,7 +14,7 @@ const productStore = useProductStore();
         :span="6"
       >
         <el-card class="card" shadow="hover">
-          <img :src="item.images[0]" class="image" :alt="item.title" />
+          <img v-img-lazy="item.images[0]" class="image" :alt="item.title" />
           <div class="content">
             <p>{{ item.title }}</p>
             <el-text class="mx-1" size="large" type="danger"

@@ -3,6 +3,7 @@ import { createPinia } from "pinia";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import App from "./App.vue";
 import router from "./router";
+import { lazyPlugin } from "@/directives/index";
 
 import "@/styles/common.scss";
 
@@ -14,5 +15,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 app.use(createPinia());
 app.use(router);
+app.use(lazyPlugin);
 
 app.mount("#app");
